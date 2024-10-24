@@ -1,7 +1,5 @@
 import React from "react";
 import CardDashboard from "./CardDashboard";
-import CardOperation from "./CardOperation";
-import { cardDetailsTwo } from "./Info";
 
 const Dashboard = () => {
   return (
@@ -15,14 +13,6 @@ const Dashboard = () => {
         <CardOperation />
         <CardOperation details={cardDetailsTwo} />
       </div>
-
-
-const Dashboard = () => {
-  return (
-    <div className="grid grid-cols-3 items-center gap-3 px-10 mt-[22px]">
-      <CardDashboard amt={19680} />
-      <CardDashboard title="Income" />
-      <CardDashboard title="Expences" />
     </div>
   );
 };
