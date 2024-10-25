@@ -1,15 +1,19 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import Intro from "./Components/Intro";
 import Dashboard from "./Components/Dashboard";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./Components/Login";
 
 const App = () => {
   return (
     <>
       <div className="grid ">
-        <Navbar />
-        <Intro name="Avinash"/>
-        <Dashboard />
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/login" element={<Login />}></Route>
+            <Route path="/" element={<Dashboard />}></Route>
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   );
