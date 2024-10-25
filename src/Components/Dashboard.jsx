@@ -1,5 +1,7 @@
 import React from "react";
 import CardDashboard from "./CardDashboard";
+import CardOperation from "./CardOperation";
+import { cardDetailsTwo } from "./Info";
 
 const Dashboard = () => {
   return (
