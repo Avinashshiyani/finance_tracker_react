@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
+import { useRef } from "react";
 
 const OperationModel = ({}) => {
+  const getLocaleStorageData = () => {
+    const localData = localStorage.getItem("addExpence");
+    return localData ? JSON.parse(localData) : [];
+  };
+
+  const [data, setData] = useState(getLocaleStorageData);
+  const title = useRef();
+  const amount = useRef();
+  const date = useRef();
+
+  useEffect(() => {
+    localStorage.setItem("addExpence", JSON.stringify(data));
+  }, [data]);
+
+  // form handling
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const titleData = title.current.value;
+    const amountData = amount.current.value;
+    const dateData = date.current.value;
+    const allData = [...data, titleData, amountData, dateData];
+    setData([allData]);
+    console.log(data);
+  };
+
   return (
     <div
       className={twMerge(
@@ -19,7 +45,7 @@ const OperationModel = ({}) => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-3">
+          <form className="space-y-3" onSubmit={handleSubmit}>
             <div>
               <label
                 htmlFor="title"
@@ -29,6 +55,7 @@ const OperationModel = ({}) => {
               </label>
               <div className="mt-1">
                 <input
+                  ref={title}
                   id="title"
                   name="title"
                   type="text"
@@ -47,6 +74,7 @@ const OperationModel = ({}) => {
               </label>
               <div className="mt-1">
                 <input
+                  ref={amount}
                   id="amount"
                   name="amount"
                   type="number"
@@ -65,6 +93,7 @@ const OperationModel = ({}) => {
               </label>
               <div className="mt-1">
                 <input
+                  ref={date}
                   id="date"
                   name="date"
                   type="date"
