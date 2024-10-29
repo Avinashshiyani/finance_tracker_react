@@ -11,8 +11,8 @@ const Dashboard = () => {
       <Intro name="Avinash" />
       <div className="grid items-center gap-3 px-10 mt-[22px] sm:grid-cols-2 md:grid-cols-3">
         <CardDashboard amt={19680} />
-        <CardDashboard title="Income" />
-        <CardDashboard title="Expences" />
+        <CardDashboard title="Income"  color="text-green-600"/>
+        <CardDashboard title="Expences" color="text-red-600" />
       </div>
       <div className="grid  items-center gap-3 px-10 mt-[22px] sm:grid-cols-3">
         <CardOperation />
