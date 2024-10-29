@@ -1,3 +1,38 @@
+
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+const Registration = () => {
+  // get data from localstorage
+  const getLocaleStorageData = () => {
+    const localData = localStorage.getItem("register");
+    return localData ? JSON.parse(localData) : [];
+  };
+
+  // registration state
+  const [registerData, setRegisterData] = useState(getLocaleStorageData);
+
+  // form handling
+  let emailData = useRef();
+  let passwordData = useRef();
+  let cpasswordData = useRef();
+
+  useEffect(() => {
+    localStorage.setItem("register", JSON.stringify(registerData));
+  }, [registerData]);
+
+  
+  const handleSubmit = (e) => {
+    let email = emailData.current.value;
+    let pass = passwordData.current.value;
+    let confirmPass = cpasswordData.current.value;
+    e.preventDefault();
+    setRegisterData([...registerData, email, pass, confirmPass]);
+    emailData.current.value = "";
+    passwordData.current.value = "";
+    cpasswordData.current.value = "";
+  };
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -22,6 +57,7 @@ const Registration = () => {
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+            <form className="space-y-3" onSubmit={handleSubmit}>
             <form className="space-y-3">
               <div>
                 <label
@@ -32,6 +68,7 @@ const Registration = () => {
                 </label>
                 <div className="mt-1">
                   <input
+                    ref={emailData}
                     id="email"
                     name="email"
                     type="email"
@@ -51,6 +88,7 @@ const Registration = () => {
                 </label>
                 <div className="mt-1">
                   <input
+                    ref={passwordData}
                     id="password"
                     name="password"
                     type="password"
@@ -70,6 +108,9 @@ const Registration = () => {
                 </label>
                 <div className="mt-1">
                   <input
+                    ref={cpasswordData}
+                    id="cpassword"
+                    name="cpassword"
                     id="password"
                     name="password"
                     type="password"
