@@ -21,6 +21,11 @@ const App = () => {
             ></Route>
             <Route path="/" element={<Dashboard />}></Route>
             <Route path="/operations" element={<OperationModel />}></Route>
+
+          <Routes>
+            <Route exact path="/login" element={<Login />}></Route>
+            <Route exact path="/registration" element={<Registration />}></Route>
+            <Route path="/" element={<Dashboard />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
