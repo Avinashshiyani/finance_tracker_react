@@ -24,10 +24,8 @@ const OperationModel = ({}) => {
     const titleData = title.current.value;
     const amountData = parseFloat(amount.current.value);
     const dateData = date.current.value;
-
     const newExpense = { title: titleData, amount: amountData, date: dateData };
     setData([...data, newExpense]);
-
     title.current.value = "";
     amount.current.value = "";
     date.current.value = "";
