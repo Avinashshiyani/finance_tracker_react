@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Transaction = () => {
-  const getLocaleStorageData = () => {
-    const localData = localStorage.getItem("addExpence");
-    return localData ? JSON.parse(localData) : [];
-  };
-
-  const [transaction, setTransaction] = useState(getLocaleStorageData);
-
   return (
     <div>
       <>
@@ -39,30 +32,81 @@ const Transaction = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {transaction.map((e, index) => (
-                      <tr
-                        key={index}
-                        className="border-y-[1.5px] rounded-[12px]"
-                      >
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-[14px] whitespace-nowrap p-4">
-                          {e.title}
-                        </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          $ {e.amount}
-                        </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {e.date}
-                        </td>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 space-x-3">
-                          <button className="py-2 px-6 bg-red-600 text-white rounded-[6px]">
-                            Delete
-                          </button>
-                          <button className="py-2 px-6 bg-blue-600 text-white rounded-[6px]">
-                            Edit
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
+                        /argon/
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
+                        4,569
+                      </td>
+                      <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        340
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i className="fas fa-arrow-up text-emerald-500 mr-4" />
+                        46,53%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                        /argon/index.html
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        3,985
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        319
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i className="fas fa-arrow-down text-orange-500 mr-4" />
+                        46,53%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                        /argon/charts.html
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        3,513
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        294
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i className="fas fa-arrow-down text-orange-500 mr-4" />
+                        36,49%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                        /argon/tables.html
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        2,050
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        147
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i className="fas fa-arrow-up text-emerald-500 mr-4" />
+                        50,87%
+                      </td>
+                    </tr>
+                    <tr>
+                      <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                        /argon/profile.html
+                      </th>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        1,795
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        190
+                      </td>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i className="fas fa-arrow-down text-red-500 mr-4" />
+                        46,53%
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -74,6 +118,5 @@ const Transaction = () => {
   );
 };
 
-let TableHead = ["Description", "Amount", "Date", "Operations"];
-
+let TableHead = ["Description", "Method", "Date", "Amount"];
 export default Transaction;

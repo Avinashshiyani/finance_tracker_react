@@ -22,13 +22,11 @@ const OperationModel = ({}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const titleData = title.current.value;
-    const amountData = parseFloat(amount.current.value);
+    const amountData = amount.current.value;
     const dateData = date.current.value;
-    const newExpense = { title: titleData, amount: amountData, date: dateData };
-    setData([...data, newExpense]);
-    title.current.value = "";
-    amount.current.value = "";
-    date.current.value = "";
+    const allData = [...data, titleData, amountData, dateData];
+    setData([allData]);
+    console.log(data);
   };
 
   return (
