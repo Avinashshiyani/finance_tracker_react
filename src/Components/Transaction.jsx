@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
 
 const Transaction = () => {
   let getLocalStorageData = () => {
     const localData = localStorage.getItem("addExpence");
     return localData ? JSON.parse(localData) : [];
   };
-
-  const [data, setData] = useState(getLocalStorageData);
+  
+  const [data] = useState(getLocalStorageData);
   return (
     <div>
       <>
@@ -38,7 +39,7 @@ const Transaction = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((e , index) => (
+                    {data.map((e, index) => (
                       <tr key={index}>
                         <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
                           {e.title}
@@ -61,6 +62,5 @@ const Transaction = () => {
     </div>
   );
 };
-
 let TableHead = ["Description", "Date", "Amount"];
 export default Transaction;
