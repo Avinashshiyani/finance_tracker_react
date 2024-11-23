@@ -20,7 +20,7 @@ const App = () => {
               element={<Registration />}
             ></Route>
             <Route path="/" element={<Dashboard />}></Route>
-            <Route path="/operations" element={<OperationModel />}></Route>
+            <Route path="/operations" element={<OperationModel />}></Route> 
             <Route exact path="/login" element={<Login />}></Route>
             <Route
               exact

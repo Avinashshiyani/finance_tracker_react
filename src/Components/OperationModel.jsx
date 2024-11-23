@@ -24,9 +24,12 @@ const OperationModel = ({}) => {
     const titleData = title.current.value;
     const amountData = amount.current.value;
     const dateData = date.current.value;
-    const allData = [...data, titleData, amountData, dateData];
-    setData([allData]);
-    console.log(data);
+    const allData = {
+      title: titleData,
+      amount: amountData,
+      date: dateData,
+    };
+    setData([...data, allData]);
   };
 
   return (
