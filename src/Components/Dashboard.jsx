@@ -6,11 +6,7 @@ import Transaction from "./Transaction";
 import Intro from "./Intro";
 import ShowExpence from "./ShowExpence";
 
-
 const Dashboard = () => {
-
-  const totalExp = ShowExpence()
- 
   return (
     <div className="grid items-center">
       <Intro name="Avinash" />

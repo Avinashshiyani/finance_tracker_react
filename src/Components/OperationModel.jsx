@@ -112,12 +112,14 @@ const OperationModel = ({}) => {
               >
                 Add Expense
               </button>
-              <button
-                type="button"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white text-black"
-              >
-                cancel
-              </button>
+              <Link to={"/"} className="w-full">
+                <button
+                  type="button"
+                  className="group relative w-full flex justify-center py-2 px-4 border border-black text-sm font-medium rounded-md  text-black"
+                >
+                  Home
+                </button>
+              </Link>
             </div>
           </form>
         </div>
