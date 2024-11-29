@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 import { useRef } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const OperationModel = ({}) => {
   const getLocaleStorageData = () => {
@@ -33,7 +35,7 @@ const OperationModel = ({}) => {
     title.current.value = "";
     amount.current.value = "";
     date.current.value = "";
-    alert("Expence Added");
+    toast.success("Transaction Added");
   };
 
   return (
@@ -53,6 +55,7 @@ const OperationModel = ({}) => {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-3" onSubmit={handleSubmit}>
+            <ToastContainer />
             <div>
               <label
                 htmlFor="title"
