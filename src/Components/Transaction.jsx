@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-
 const Transaction = () => {
   let getLocalStorageData = () => {
     const localData = localStorage.getItem("addExpence");
     return localData ? JSON.parse(localData) : [];
   };
-  
+
   const [data] = useState(getLocalStorageData);
   return (
     <div>
@@ -45,10 +44,21 @@ const Transaction = () => {
                           {e.title}
                         </th>
                         <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          Exp
+                        </td>
+                        <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           {e.date}
                         </td>
                         <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           ${e.amount}
+                        </td>
+                        <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 space-x-2">
+                          <button className="border-1 bg-red-500 text-white px-4 py-2 rounded-[4px] hover:bg-red-600">
+                            Delete
+                          </button>
+                          <button className="border-1 bg-blue-500 text-white px-4 py-2 rounded-[4px] hover:bg-blue-600">
+                            Edit
+                          </button>
                         </td>
                       </tr>
                     ))}
@@ -62,5 +72,5 @@ const Transaction = () => {
     </div>
   );
 };
-let TableHead = ["Description", "Date", "Amount"];
+let TableHead = ["Description", "Type", "Date", "Amount", "Operations"];
 export default Transaction;

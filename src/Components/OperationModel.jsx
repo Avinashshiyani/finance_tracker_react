@@ -30,6 +30,10 @@ const OperationModel = ({}) => {
       date: dateData,
     };
     setData([...data, allData]);
+    title.current.value = "";
+    amount.current.value = "";
+    date.current.value = "";
+    alert("Expence Added");
   };
 
   return (
