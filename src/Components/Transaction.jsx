@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { json } from "react-router-dom";
 
 const Transaction = () => {
   let getLocalStorageData = () => {
@@ -6,7 +7,18 @@ const Transaction = () => {
     return localData ? JSON.parse(localData) : [];
   };
 
-  const [data] = useState(getLocalStorageData);
+  const [data, setData] = useState(getLocalStorageData);
+
+  const handleDelete = (index) => {
+    const updateData = data.filter((_, id) => id !== index);
+    setData(updateData);
+    console.log(updateData);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("addExpence", JSON.stringify(data));
+  }, [data]);
+
   return (
     <div>
       <>
@@ -53,7 +65,10 @@ const Transaction = () => {
                           ${e.amount}
                         </td>
                         <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4 space-x-2">
-                          <button className="border-1 bg-red-500 text-white px-4 py-2 rounded-[4px] hover:bg-red-600">
+                          <button
+                            onClick={() => handleDelete(index)}
+                            className="border-1 bg-red-500 text-white px-4 py-2 rounded-[4px] hover:bg-red-600"
+                          >
                             Delete
                           </button>
                           <button className="border-1 bg-blue-500 text-white px-4 py-2 rounded-[4px] hover:bg-blue-600">
