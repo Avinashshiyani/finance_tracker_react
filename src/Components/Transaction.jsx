@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
 const Transaction = () => {
   let getLocalStorageData = () => {
@@ -9,9 +12,12 @@ const Transaction = () => {
   const [data, setData] = useState(getLocalStorageData);
 
   const handleDelete = (index) => {
-    const updateData = data.filter((_, id) => id !== index);
-    setData(updateData);
-    console.log(updateData);
+    if (confirm("Want to delete the data")) {
+      const updateData = data.filter((_, id) => id !== index);
+      setData(updateData);
+      console.log(updateData);
+      toast.info("Transaction Deleted");
+    }
   };
 
   useEffect(() => {
@@ -22,6 +28,7 @@ const Transaction = () => {
     <div>
       <>
         <section className="py-1  px-10 mt-[22px]">
+          <ToastContainer />
           <div className="w-full  mb-12 xl:mb-0  mx-auto  ">
             <div className="relative flex flex-col min-w-0 rounded-[14px] border-[1px]  border-gray-300 px-[24px] break-words bg-white w-full mb-6 shadow-lg rounded ">
               <div className="rounded-t mb-0  py-3 border-0">

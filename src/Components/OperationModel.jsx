@@ -20,6 +20,13 @@ const OperationModel = ({}) => {
     localStorage.setItem("addExpence", JSON.stringify(data));
   }, [data]);
 
+  // const getDate = () => {
+  // const dates = new Date();
+  // const todayYear = dates.getUTCFullYear();
+  // const todayMonth = dates.getMonth();
+  // const todayDay = dates.getDay();
+  // let fullDate = `${todayYear}-${todayMonth}-${todayDay}`;
+
   // form handling
   const handleSubmit = (e) => {
     e.preventDefault();
