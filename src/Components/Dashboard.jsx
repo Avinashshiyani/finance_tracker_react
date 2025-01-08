@@ -11,12 +11,12 @@ const Dashboard = () => {
     <div className="grid items-center">
       <Intro name="Avinash" />
       <div className="grid items-center gap-3 px-10 mt-[22px] sm:grid-cols-2 md:grid-cols-3">
-        <CardDashboard amt={19680} />
-        <CardDashboard title="Income" />
+        {/* <CardDashboard amt={19680} /> */}
+        {/* <CardDashboard title="Income" /> */}
         <CardDashboard title="Expences" amt={<ShowExpence />} />
       </div>
       <div className="grid  items-center gap-3 px-10 mt-[22px] sm:grid-cols-3">
-        <CardOperation />
+        {/* <CardOperation /> */}
         <CardOperation details={cardDetailsTwo} />
       </div>
       <div className="">
