@@ -16,7 +16,7 @@ const Login = () => {
               href="#"
               className="font-medium text-blue-600 hover:text-blue-500"
             >
-              create an account
+              create an Account
             </Link>
           </p>
         </div>
