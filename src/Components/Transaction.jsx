@@ -12,12 +12,10 @@ const Transaction = () => {
   const [data, setData] = useState(getLocalStorageData);
 
   const handleDelete = (index) => {
-    if (confirm("Want to delete the data")) {
-      const updateData = data.filter((_, id) => id !== index);
-      setData(updateData);
-      console.log(updateData);
-      toast.info("Transaction Deleted");
-    }
+    const updateData = data.filter((_, id) => id !== index);
+    setData(updateData);
+    console.log(updateData);
+    toast.info("Transaction Deleted");
   };
 
   useEffect(() => {
@@ -76,9 +74,6 @@ const Transaction = () => {
                             className="border-1 bg-red-500 text-white px-4 py-2 rounded-[4px] hover:bg-red-600"
                           >
                             Delete
-                          </button>
-                          <button className="border-1 bg-blue-500 text-white px-4 py-2 rounded-[4px] hover:bg-blue-600">
-                            Edit
                           </button>
                         </td>
                       </tr>
